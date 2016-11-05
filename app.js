@@ -1,4 +1,4 @@
 require('./login');
 
-document.write("Hola mundo");
+document.write("Hola mundo!!!");
 console.log("aplicación inicializada");
