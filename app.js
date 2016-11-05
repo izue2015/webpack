@@ -1,2 +1,4 @@
-document.write("Bienvenidos!!!");
-console.log("App loaded");
+require('./login');
+
+document.write("Hola mundo");
+console.log("aplicación inicializada");
