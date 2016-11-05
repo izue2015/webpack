@@ -14,8 +14,11 @@ module.exports = {
     ],
     loaders: [{
       test: /\.es6$/,
-      esxlude: /node_modules/,
-      loader: "babel-loader"
+      exclude: /node_modules/,
+      loader: "babel",
+      query: {
+        presets: ['es2015']
+      }
     }
   ]
 },
