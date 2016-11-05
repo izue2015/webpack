@@ -1,7 +1,14 @@
 module.exports = {
-  entry: ["./utils","./app.js"],
+  context: __dirname +'/js',
+  entry: ["./utils", "./app.js"],
   output: {
+    path: __dirname + "/build/js/",
+    publicPath: '/public/assets/js/',
     filename: "bundle.js"
+  },
+
+  devServer: {
+    contentBase: 'public'
   },
 
   module: {
