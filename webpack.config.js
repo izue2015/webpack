@@ -1,6 +1,6 @@
 module.exports = {
   context: __dirname +'/js',
-  entry: ["./utils", "./app.js"],
+  entry: ["./app"],
   output: {
     path: __dirname + "/build/js/",
     publicPath: '/public/assets/js/',
@@ -26,6 +26,15 @@ module.exports = {
       query: {
         presets: ['es2015']
       }
+    },
+    {
+      test: /\.css$/,
+      exclude: /node_modules/,
+      loader: "style!css"
+    },
+    {
+      test   : /\.(ttf|eot|svg|woff(2)?)$/,
+      loader : 'url-loader?limit=10000'
     }
   ]
 },
