@@ -12,13 +12,6 @@ module.exports = {
   },
 
   module: {
-    preLoaders: [
-      {
-        test: /\.js$/,
-        exclude: 'node_modules',
-        loader: 'jshint-loader'
-      }
-    ],
     loaders: [{
       test: /\.es6$/,
       exclude: /node_modules/,
@@ -31,6 +24,11 @@ module.exports = {
       test: /\.css$/,
       exclude: /node_modules/,
       loader: "style!css"
+    },
+    {
+      test: /\.scss$/,
+      exclude: /node_modules/,
+      loader: "style-loader!css-loader!sass-loader"
     },
     {
       test   : /\.(ttf|eot|svg|woff(2)?)$/,
