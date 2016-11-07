@@ -1,12 +1,13 @@
+var ExtractTextPlugin = require("extract-text-webpack-plugin");
+
 module.exports = {
   context: __dirname +'/js',
   entry: ["./app"],
   output: {
-    path: __dirname + "/build/js/",
-    publicPath: '/public/assets/js/',
+    path: __dirname + "/build",
+    publicPath: '/public/assets',
     filename: "bundle.js"
   },
-
   devServer: {
     contentBase: 'public'
   },
@@ -23,12 +24,12 @@ module.exports = {
     {
       test: /\.css$/,
       exclude: /node_modules/,
-      loader: "style!css"
+      loader: ExtractTextPlugin.extract("style", "css!autoprefixer-loader")
     },
     {
       test: /\.scss$/,
       exclude: /node_modules/,
-      loader: "style-loader!css-loader!sass-loader"
+      loader: ExtractTextPlugin.extract("style", "css!autoprefixer-loader!sass")
     },
     {
       test   : /\.(ttf|eot|svg|woff(2)?)$/,
@@ -36,7 +37,9 @@ module.exports = {
     }
   ]
 },
-
+plugins: [
+  new ExtractTextPlugin("styles.css")
+],
 resolve: {
   extensions: ['', '.js', '.es6']
 }
